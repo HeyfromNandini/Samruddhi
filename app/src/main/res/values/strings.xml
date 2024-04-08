@@ -10,7 +10,7 @@
     <string name="banana">Banana</string>
     <string name="maize">Maize</string>
     <string name="next">Next</string>
-    <string name="apnaBazar">Apna Bazaar</string>
+    <string name="apnaBazar">Apna     Bazaar</string>
     <string name="weather">Mausam Charcha</string>
     <string name="mittikmann">Mitti K mann</string>
     <string name="pashupalak">Pashu Palak</string>
@@ -22,7 +22,8 @@
     <string name="fertilizers">Fertilizers</string>
     <string name="pesticides">Pesticides</string>
     <string name="find_best_products_from_nearby_store">Find Best Products from Nearby Stores</string>
-    <string name="quantity">Quantity</string>
+    <string name="quantity">Quantity (Available)</string>
+    <string name="bidprice">Minimum Bid</string>
     <string name="price">Price</string>
     <string name="sonic">Sonic</string>
     <string name="It_is_a_Rainy_day_Today">It is a Rainy Day Today</string>
@@ -47,7 +48,6 @@
     <string name="abc">Raj Pawar</string>
     <string name="apna_bazaar_my_crops">Apna Bazaar - My Crops</string>
     <string name="interested_buyers">Interested Buyers</string>
-    <string name="bid_price">" Bid Price"</string>
     <string name="make_a_deal">Make a deal</string>
     <string name="requirements">" Requirements:"</string>
     <string name="quantity_120_kg_month">" Quantity : 120 kg/month"</string>
@@ -58,4 +58,17 @@
     <string name="are_you_a_farmer_or_a_buyer" translatable="false">Are you a Farmer or a Buyer?</string>
     <string name="farmers" translatable="false">Farmers</string>
     <string name="buyer" translatable="false">Buyer</string>
+
+
+
+    <string name="_30rupee">30 Rupees/kg</string>
+    <string name="bid_price">" Bid Price"</string>
+    <string name="transportchoice">"Transportation Choice"</string>
+    <string name="delivery_location">"Enter Delivery Location"</string>
+    <string name="continue_button">"Continue"</string>
+    <string name="rental_services">"Rental Services"</string>
+    <string name="Gov_Schemes">"Your Scheme Centre!"</string>
+    <string name="AGRI_Edu">"AGRI Education"</string>
+
+
 </resources>

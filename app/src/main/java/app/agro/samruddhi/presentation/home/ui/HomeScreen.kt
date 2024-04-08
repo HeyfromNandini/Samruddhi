@@ -46,6 +46,7 @@ import androidx.navigation.NavController
 import app.agro.samruddhi.R
 import app.agro.samruddhi.presentation.login.LoginViewModel
 import app.agro.samruddhi.presentation.login.ui.LoginTopBar
+import app.agro.samruddhi.presentation.navigation.Screens
 import app.agro.samruddhi.presentation.utils.BottomBar
 import app.agro.samruddhi.ui.theme.homeCardGradient
 import com.airbnb.lottie.compose.LottieAnimation
@@ -138,6 +139,49 @@ fun HomeScreen(
                         }
                     }
                     Spacer(modifier = Modifier.height(20.dp))
+
+                    Row(
+                        modifier = Modifier
+                            .fillMaxWidth()
+                            .padding(horizontal = 30.dp),
+                        horizontalArrangement = Arrangement.SpaceBetween,
+                        verticalAlignment = Alignment.CenterVertically
+                    ) {
+
+                        TwoColumnCard(
+                            image = R.drawable.trucktr1,
+                            title = "Rental Services",
+                            isSelected = false, // Optional parameter, defaults to false
+                            shape = RoundedCornerShape(8.dp)
+                        ) // Provide the shape you want
+                        {
+                          navController.navigate(Screens.RentalServices.route)
+                              }
+
+
+                        TwoColumnCard(
+                            image = R.drawable.govschemes,
+                            title = "AGRI Schemes",
+                            isSelected = false, // Optional parameter, defaults to false
+                            shape = RoundedCornerShape(8.dp)
+                        ) // Provide the shape you want
+                        {
+                            navController.navigate(Screens.GovSchemes.route)
+                        }
+
+                        TwoColumnCard(
+                            image = R.drawable.edu,
+                            title = "AGRI-    Edutech",
+                            isSelected = false, // Optional parameter, defaults to false
+                            shape = RoundedCornerShape(8.dp)
+                        ) // Provide the shape you want
+                        {
+                            navController.navigate(Screens.AGRIEdu.route)
+                        }
+                    }
+
+                    Spacer(modifier = Modifier.height(20.dp))
+
                     Card(
                         modifier = Modifier
                             .fillMaxWidth()
@@ -307,3 +351,46 @@ data class HomeCard(
     val route: String? = null
 )
 
+
+@Composable
+fun TwoColumnCard(
+    image: Int,
+    title: String,
+    isSelected: Boolean = false,
+    shape: RoundedCornerShape,
+    onClick: () -> Unit = {},
+) {
+
+    Card(
+        elevation = CardDefaults.cardElevation(4.dp),
+        colors = CardDefaults.cardColors(
+            MaterialTheme.colorScheme.secondaryContainer,
+        ),
+        shape = shape,
+        modifier = Modifier.width(80.dp)
+            .clickable {
+                onClick()
+            }
+    ) {
+        Column(
+            modifier = Modifier
+                .padding(vertical = 5.dp, horizontal = 5.dp),
+            verticalArrangement = Arrangement.Center,
+            horizontalAlignment = Alignment.CenterHorizontally
+        ) {
+            Image(
+                painter = painterResource(id = image),
+                contentDescription = "",
+                modifier = Modifier.size(100.dp)
+            )
+            Spacer(modifier = Modifier.height(8.dp))
+            Text(
+                text = title,
+                color = MaterialTheme.colorScheme.secondary,
+                fontSize = 12.sp,
+            )
+
+        }
+    }
+
+}

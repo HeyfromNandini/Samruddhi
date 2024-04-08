@@ -8,15 +8,20 @@ import androidx.hilt.navigation.compose.hiltViewModel
 import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
 import androidx.navigation.compose.rememberNavController
+import app.agro.samruddhi.edutech.AgriEdu
+import app.agro.samruddhi.edutech.PlantEdu
+import app.agro.samruddhi.governmentschemes.GovSchemes
 import app.agro.samruddhi.presentation.apnabazaar.ui.BuyerAccRej
 import app.agro.samruddhi.presentation.apnabazaar.ui.BuyerApnabazaar
 import app.agro.samruddhi.presentation.apnabazaar.ui.BuyerList
 import app.agro.samruddhi.presentation.apnabazaar.ui.FarmerApnabazaar
 import app.agro.samruddhi.presentation.apnabazaar.ui.FarmerList
+import app.agro.samruddhi.presentation.apnabazaar.ui.TransportChoice
 import app.agro.samruddhi.presentation.home.ui.HomeScreen
 import app.agro.samruddhi.presentation.login.LoginViewModel
 import app.agro.samruddhi.presentation.login.ui.LoginScreen
 import app.agro.samruddhi.presentation.login.ui.SelectOption
+import app.agro.samruddhi.presentation.rentalservices.RentalServices
 import app.agro.samruddhi.presentation.selectcrop.ui.SelectCropScreen
 import app.agro.samruddhi.presentation.weather.Weather
 
@@ -91,11 +96,34 @@ fun MainNavController() {
         }
 
         composable(Screens.FarmerList.route) {
-            FarmerList()
+            FarmerList(navHostController)
         }
+
 
         composable(Screens.BuyerApnaBazaar.route) {
             BuyerApnabazaar(navHostController)
+        }
+
+
+
+
+
+
+
+        composable(Screens.TransportChoice.route) {
+            TransportChoice(navHostController)
+        }
+        composable(Screens.RentalServices.route) {
+            RentalServices(navHostController)
+        }
+        composable(Screens.GovSchemes.route) {
+            GovSchemes(navHostController)
+        }
+        composable(Screens.AGRIEdu.route) {
+           AgriEdu(navHostController)
+        }
+        composable(Screens.PlantEdu.route) {
+            PlantEdu(navHostController)
         }
 
 

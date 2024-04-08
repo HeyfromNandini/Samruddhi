@@ -14,4 +14,11 @@ sealed class Screens(val route: String) {
     data object BuyerList : Screens("buyerList")
     data object FarmerList : Screens("farmerList")
     data object ConfirmBuyer : Screens("confirmBuyer")
+
+
+    data object TransportChoice : Screens("transportchoice")
+    data object RentalServices : Screens("rental services")
+    data object GovSchemes : Screens("govschemes")
+    data object AGRIEdu : Screens("agriedu")
+    data object PlantEdu : Screens("plantedu")
 }

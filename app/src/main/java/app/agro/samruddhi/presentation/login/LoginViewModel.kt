@@ -119,23 +119,27 @@ class LoginViewModel @Inject constructor(
             HomeCard(
                 image = R.drawable.apnabazar,
                 title = R.string.apnaBazar,
-                topEnd = 40.dp
+                topEnd = 40.dp,
+                route = Screens.ApnaBazaar.route
             )
         )
         homeCardList.add(
             HomeCard(
                 image = R.drawable.mittikman,
                 title = R.string.mittikmann,
-                bottomLeft = 40.dp
+                bottomLeft = 40.dp,
+                route = Screens.PlantEdu.route
             )
         )
         homeCardList.add(
             HomeCard(
                 image = R.drawable.pashupalak,
                 title = R.string.pashupalak,
-                bottomRight = 40.dp
+                bottomRight = 40.dp,
+                route = Screens.AGRIEdu.route
             )
         )
+
 
         translateList.add(
             TranslatorCardItem(

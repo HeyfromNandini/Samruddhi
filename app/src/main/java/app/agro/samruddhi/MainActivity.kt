@@ -7,7 +7,13 @@ import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Surface
 import androidx.compose.ui.Modifier
+import app.agro.samruddhi.edutech.AgriEdu
+import app.agro.samruddhi.edutech.PlantEdu
+import app.agro.samruddhi.governmentschemes.GovSchemes
+import app.agro.samruddhi.presentation.apnabazaar.ui.FarmerList
+import app.agro.samruddhi.presentation.apnabazaar.ui.TransportChoice
 import app.agro.samruddhi.presentation.navigation.MainNavController
+import app.agro.samruddhi.presentation.rentalservices.RentalServices
 import app.agro.samruddhi.ui.theme.SamruddhiTheme
 import dagger.hilt.android.AndroidEntryPoint
 
@@ -23,7 +29,14 @@ class MainActivity : ComponentActivity() {
                     color = MaterialTheme.colorScheme.background
                 ) {
                     MainNavController()
+//                    FarmerList()
+//                    TransportChoice()
+//                    RentalServices()
+//                    GovSchemes()
+//                    AgriEdu()
+//                    PlantEdu()
                 }
+
             }
         }
     }

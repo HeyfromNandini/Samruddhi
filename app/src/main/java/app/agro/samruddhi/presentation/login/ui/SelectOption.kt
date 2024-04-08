@@ -4,6 +4,8 @@ import androidx.compose.foundation.BorderStroke
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.background
 import androidx.compose.foundation.clickable
+import androidx.compose.foundation.layout.Arrangement
+import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.Spacer
@@ -22,6 +24,7 @@ import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.text.font.FontWeight
+import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import androidx.navigation.NavController
@@ -61,7 +64,7 @@ fun SelectOption(navController: NavController) {
         }
         Spacer(modifier = Modifier.height(40.dp))
         Select(text = stringResource(R.string.farmers)) {
-            navController.navigate(Screens.Login.route)
+            navController.navigate(Screens.SelectCrop.route)
         }
         Select(text = stringResource(R.string.buyer)) {
             navController.navigate(Screens.BuyerApnaBazaar.route)
@@ -76,23 +79,34 @@ fun Select(
     text: String,
     onClick: () -> Unit = {}
 ) {
-    Row(modifier = Modifier.padding(start = 24.dp, end = 24.dp, top = 20.dp)) {
+    Row(
+        modifier = Modifier.fillMaxWidth().padding(start = 24.dp, end = 24.dp, top = 20.dp),
+        horizontalArrangement = Arrangement.Center
+    ) {
         Card(
             modifier = Modifier
                 .fillMaxWidth()
                 .clickable {
                     onClick()
                 },
-            border = BorderStroke(1.dp, Color.Green)
-        ) {
+            border = BorderStroke(1.dp, Color.Green),
+
+            ) {
+
+            Box(
+                modifier = Modifier.fillMaxWidth()
+                    .padding(vertical = 12.dp),
+                contentAlignment = Alignment.Center
+            ) {
             Text(
                 text = text,
                 fontSize = 18.sp,
                 fontWeight = FontWeight.SemiBold,
-                modifier = Modifier.padding(start = 130.dp, top = 12.dp, bottom = 12.dp),
+                textAlign = TextAlign.Center,
+                modifier = Modifier.padding(horizontal = 30.dp, vertical = 4.dp),
                 color = MaterialTheme.colorScheme.surfaceTint,
                 softWrap = true
             )
-        }
+        }}
     }
 }
