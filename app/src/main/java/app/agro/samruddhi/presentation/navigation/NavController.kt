@@ -11,6 +11,7 @@ import androidx.navigation.compose.rememberNavController
 import app.agro.samruddhi.edutech.AgriEdu
 import app.agro.samruddhi.edutech.PlantEdu
 import app.agro.samruddhi.governmentschemes.GovSchemes
+import app.agro.samruddhi.practice.Practice
 import app.agro.samruddhi.presentation.apnabazaar.ui.BuyerAccRej
 import app.agro.samruddhi.presentation.apnabazaar.ui.BuyerApnabazaar
 import app.agro.samruddhi.presentation.apnabazaar.ui.BuyerList
@@ -124,6 +125,9 @@ fun MainNavController() {
         }
         composable(Screens.PlantEdu.route) {
             PlantEdu(navHostController)
+        }
+        composable(Screens.Practice.route) {
+            Practice(navHostController)
         }
 
 
