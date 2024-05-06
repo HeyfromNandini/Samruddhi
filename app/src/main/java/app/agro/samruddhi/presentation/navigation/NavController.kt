@@ -8,8 +8,10 @@ import androidx.hilt.navigation.compose.hiltViewModel
 import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
 import androidx.navigation.compose.rememberNavController
+import app.agro.samruddhi.chatbot.ChatBotScreen
 import app.agro.samruddhi.edutech.AgriEdu
 import app.agro.samruddhi.edutech.PlantEdu
+import app.agro.samruddhi.gemini.ai.chatBot.ChatBot
 import app.agro.samruddhi.governmentschemes.GovSchemes
 import app.agro.samruddhi.practice.Practice
 import app.agro.samruddhi.presentation.apnabazaar.ui.BuyerAccRej
@@ -111,6 +113,13 @@ fun MainNavController() {
 
 
 
+        composable(Screens.ChatBotScreen.route) {
+            ChatBotScreen(navHostController)
+        }
+        composable(Screens.Chatbot.route) {
+            ChatBot(navController = navHostController)
+        }
+
         composable(Screens.TransportChoice.route) {
             TransportChoice(navHostController)
         }
@@ -121,7 +130,7 @@ fun MainNavController() {
             GovSchemes(navHostController)
         }
         composable(Screens.AGRIEdu.route) {
-           AgriEdu(navHostController)
+            AgriEdu(navHostController)
         }
         composable(Screens.PlantEdu.route) {
             PlantEdu(navHostController)

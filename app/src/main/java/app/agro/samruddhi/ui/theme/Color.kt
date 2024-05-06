@@ -27,6 +27,14 @@ val lightGreen = Color(0xFF0FA958)
 val orange000 = Color(0xFFFE724C)
 val orange001 = Color(0xFFFFBA49)
 
+
+val White = Color(0xFFFFFFFF)
+val CardGreen = Color(0xFF2E6963)
+val NeonYellow = Color(0xFFDAEE87)
+val MainGreen = Color(0xFF053644)
+val GreenLight = Color(0xFF2E6963)
+val LightBlue = Color(0xFFA8DBD8)
+
 val homeCardGradient = Brush.verticalGradient(
     colors = listOf(
         Color(0xFF26c384),

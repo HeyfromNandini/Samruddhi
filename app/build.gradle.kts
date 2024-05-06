@@ -1,15 +1,21 @@
-@Suppress("DSL_SCOPE_VIOLATION") // TODO: Remove once KTIJ-19369 is fixed
+import org.jetbrains.kotlin.konan.properties.Properties
+
 plugins {
-    alias(libs.plugins.androidApplication)
-    alias(libs.plugins.kotlinAndroid)
     id("dagger.hilt.android.plugin")
     kotlin("kapt")
+    id("com.android.application")
+    id("org.jetbrains.kotlin.android")
+
+    id("com.google.android.libraries.mapsplatform.secrets-gradle-plugin")
+
     id("com.google.gms.google-services")
 }
+
 
 android {
     namespace = "app.agro.samruddhi"
     compileSdk = 34
+
 
     defaultConfig {
         applicationId = "app.agro.samruddhi"
@@ -22,15 +28,27 @@ android {
         vectorDrawables {
             useSupportLibrary = true
         }
+
+
     }
 
+    val properties = readLocalProperties()
     buildTypes {
+        debug {
+            val localProperties = Properties()
+            buildConfigField("String", "apikey",  "\"${properties.getProperty("apikey")}\"")
+
+        }
         release {
+            buildConfigField("String", "apikey",  "\"${properties.getProperty("apikey")}\"")
+
             isMinifyEnabled = false
             proguardFiles(
                 getDefaultProguardFile("proguard-android-optimize.txt"),
                 "proguard-rules.pro"
             )
+
+
         }
     }
     compileOptions {
@@ -40,8 +58,12 @@ android {
     kotlinOptions {
         jvmTarget = "17"
     }
+
+
     buildFeatures {
         compose = true
+        buildConfig= true
+
     }
     composeOptions {
         kotlinCompilerExtensionVersion = "1.5.1"
@@ -70,6 +92,13 @@ dependencies {
     // Material
     implementation(libs.material3)
     implementation(libs.androidx.material3)
+
+    //material for icons
+    implementation ("androidx.compose.material:material-icons-core:1.7.0-alpha02")
+    implementation ("androidx.compose.material:material-icons-extended:1.7.0-alpha02")
+    implementation ("androidx.compose.material:material:1.7.0-alpha07")
+    implementation("androidx.compose.material:material:1.6.6")
+
 
     // Accompanist
     implementation(libs.accompanist.systemuicontroller)
@@ -102,6 +131,10 @@ dependencies {
     // DataStore
     implementation(libs.androidx.datastore.preferences)
 
+    //pager(autoslider)
+    implementation ("com.google.accompanist:accompanist-pager:0.28.0")
+
+
     // Room
     val room_version = "2.5.1"
 
@@ -121,4 +154,24 @@ dependencies {
     debugImplementation(libs.ui.test.manifest)
 
 
+
+    //for chatAI
+    implementation("com.squareup.retrofit2:retrofit:2.9.0")
+    implementation("com.squareup.retrofit2:converter-gson:2.9.0")
+    implementation("org.jetbrains.kotlinx:kotlinx-coroutines-android:1.7.3")
+
+
+
+    //genai
+    implementation("com.google.ai.client.generativeai:generativeai:0.2.0")
+}
+
+
+
+
+fun readLocalProperties(): java.util.Properties {
+
+    return  Properties().apply {
+        load(rootProject.file("local.properties").reader())
+    }
 }
